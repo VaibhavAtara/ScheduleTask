@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private void SetAlarm(long timeInMillis) {
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this,PublishMessage.class);
+        intent.putExtra("hello","hello");
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
 
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,timeInMillis,AlarmManager.INTERVAL_DAY,pendingIntent);
